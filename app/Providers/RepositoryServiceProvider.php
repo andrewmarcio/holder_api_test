@@ -24,8 +24,8 @@ class RepositoryServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind(
-            App\Repository\Contracts\TaskRepositoryInterface::class,
-            App\Repository\TaskRepository::class
+            \App\Repositories\Contracts\TaskRepositoryInterface::class,
+            \App\Repositories\TaskRepository::class
         );
     }
 }
