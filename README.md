@@ -23,14 +23,14 @@
 <p>Execute this command after clone repository to install dependencies</p>
 
 ```
-	composer install
+composer install
 ```
 
 ### Migrations
 <p>After created database, use this command to create tables</p>
 
 ```
-	php artisan migrate
+php artisan migrate
 ```
 
 ## Test
@@ -38,7 +38,7 @@
 <p>To test the application before using it, use this command</p>
 
 ```
-	php artisan test
+php artisan test
 ```
 
 
