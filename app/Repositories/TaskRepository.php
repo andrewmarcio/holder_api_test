@@ -4,12 +4,13 @@ namespace App\Repositories;
 
 use App\Models\Task;
 use App\Repositories\Contracts\TaskRepositoryInterface;
+use Illuminate\Database\Eloquent\Collection;
 
 class TaskRepository implements TaskRepositoryInterface
 {
-    public function getAllTasks(): array
+    public function getAllTasks(): Collection
     {
-        return Task::get();
+        return Task::all();
     }
 
     public function getTask(int $taskId): ?Task
@@ -24,7 +25,9 @@ class TaskRepository implements TaskRepositoryInterface
 
     public function updateTask(int $taskId, array $taskDetails): Task
     {
-        return Task::whereId($taskId)->update($taskDetails);
+        $task = Task::find($taskId);
+        $task->update($taskDetails);
+        return $task;
     }
 
     public function destroyTask(int $taskId): void
