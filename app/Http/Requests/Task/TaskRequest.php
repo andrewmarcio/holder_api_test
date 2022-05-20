@@ -23,12 +23,13 @@ class TaskRequest extends FormRequest
      */
     public function rules()
     {
+        $requiredValidation = $this->method() === "POST" ? "required" : "nullable";
         return [
-            "initial_date" => "required|date|date_format:Y-m-d",
-            "initial_hour" => "required|date_format:h:i",
+            "initial_date" => $requiredValidation ."|date|date_format:Y-m-d",
+            "initial_hour" => $requiredValidation ."|date_format:h:i",
             "final_date" => "nullable|date|date_format:Y-m-d|after_or_equal:initial_date",
             "final_hour" => "nullable|date_format:h:i|after:initial_hour",
-            "description" => "required|string"
+            "description" => $requiredValidation ."|string"
         ];
     }
 }
